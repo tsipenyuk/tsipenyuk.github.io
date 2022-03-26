@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on Arseniy Tsipenyuk</title>
+    <link>http://tsipenyuk.github.io/tags/emacs/</link>
+    <description>Recent content in emacs on Arseniy Tsipenyuk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 20 Mar 2022 22:13:00 +0100</lastBuildDate><atom:link href="http://tsipenyuk.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up ox-hugo</title>
+      <link>http://tsipenyuk.github.io/posts/setting-up-ox-hugo/</link>
+      <pubDate>Sun, 20 Mar 2022 22:13:00 +0100</pubDate>
+      
+      <guid>http://tsipenyuk.github.io/posts/setting-up-ox-hugo/</guid>
+      <description>To set up ox-hugo, I followed the official quick start page.
+On MacOS:
+brew install hugo brew install go mkdir blog &amp;amp;&amp;amp; cd blog For theme, I could not get hugo mod init to work, so I used the git clone approach. As of the time of writing, I have used the hello-friend-ng theme, which recommends the github submodule installation:
+git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng To conclude the theme setup, I have copied the recommended settings to my config.</description>
+    </item>
+    
+  </channel>
+</rss>

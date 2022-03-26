@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grep on Arseniy Tsipenyuk</title>
+    <link>http://tsipenyuk.github.io/tags/grep/</link>
+    <description>Recent content in grep on Arseniy Tsipenyuk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 22 Mar 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://tsipenyuk.github.io/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Looping over lines in bash</title>
+      <link>http://tsipenyuk.github.io/posts/looping_over_lines_in_bash/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://tsipenyuk.github.io/posts/looping_over_lines_in_bash/</guid>
+      <description>Recently, I had to write a script that finds files that end in .json but not in examples.json, and renames them. Here is a relevant part of the shell script that uses sed.
+find . -type f \( -iname &amp;#34;*.json&amp;#34; ! -iname &amp;#34;*.examples.json&amp;#34; \) | while read -r line do  out=$(sed &amp;#39;s/.json/.d.ts/g&amp;#39; &amp;lt;&amp;lt;&amp;lt; &amp;#34;$line&amp;#34;)  echo &amp;#34;$lineconverted to $out&amp;#34; done In another place, I wanted to create a minimal custom CHANGELOG that prints git commits that mention category cool-category in their message (e.</description>
+    </item>
+    
+  </channel>
+</rss>

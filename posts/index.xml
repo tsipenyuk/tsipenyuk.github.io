@@ -1,0 +1,169 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Arseniy Tsipenyuk</title>
+        <link>http://tsipenyuk.github.io/posts/</link>
+        <description>Recent content in Posts on Arseniy Tsipenyuk</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0100</lastBuildDate>
+        <atom:link href="http://tsipenyuk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Changing keybindings in Slack using Karabiner Elements</title>
+            <link>http://tsipenyuk.github.io/posts/changing_keybindings_in_slack_using_karabiner_elements/</link>
+            <pubDate>Sat, 26 Mar 2022 00:00:00 +0100</pubDate>
+            
+            <guid>http://tsipenyuk.github.io/posts/changing_keybindings_in_slack_using_karabiner_elements/</guid>
+            <description>I constantly keep using the false shortcut for code in Slack and Confluence (Option+Shift+C in Slack, Option+Shift+M in Confluence).
+Apparently there is no native key switching in either of these apps to make the shortcut the same.
+I ended up using Karabiner-Elements to map my Option+Shift+C to Option+Ship+M, but only if Slack is my foremost window using the following steps.
+1. Install Karabiner. Open it to make sure that it works.</description>
+            <content type="html"><![CDATA[<p>I constantly keep using the false shortcut for code in Slack and Confluence
+(Option+Shift+C in Slack, Option+Shift+M in Confluence).</p>
+<p>Apparently there is no native key switching in either of these apps to make the shortcut the same.</p>
+<p>I ended up using <a href="https://karabiner-elements.pqrs.org/">Karabiner-Elements</a> to map my Option+Shift+C to Option+Ship+M, but only if Slack is my foremost window using the following steps.</p>
+<h2 id="1-dot-install-karabiner-dot">1. Install Karabiner.</h2>
+<p>Open it to make sure that it works.  Check that the folder
+<code>~/.config/karabiner/assets/complex_modifications</code> has been created.  If it
+is not already created, try to go to <code>Karabiner-Elements</code> → <code>Preferences</code> →
+<code>Complex modifications</code> → <code>Add rule</code> → <code>Import more rules from the Internet</code>
+→ and add just any rule, and it will be saved to the aforementioned folder.
+(In my case, it was already there since I have used Karabiner before).</p>
+<h2 id="2-dot-save-the-custom-rule">2. Save the custom rule</h2>
+<p>Save the following code as
+<code>~/.config/karabiner/assets/complex_modifications/option-shift-m--to--option-shift-c--in-slack.json</code>
+(you may use a different filename, it does not matter, just the location is
+important):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;Slack: code as in Confluence&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Option-Shift-M to Option-Shift-C in Slack&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;manipulators&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;basic&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;from&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;m&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;modifiers&#34;</span>: {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;mandatory&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;shift&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;option&#34;</span>
+</span></span><span style="display:flex;"><span>              ]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;conditions&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;frontmost_application_if&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Only for Slack&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;bundle_identifiers&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;com.tinyspeck.slackmacgap&#34;</span>
+</span></span><span style="display:flex;"><span>              ]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;key_code&#34;</span>: <span style="color:#e6db74">&#34;c&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;modifiers&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;shift&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;option&#34;</span>
+</span></span><span style="display:flex;"><span>              ]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>(If you want to know more on Karabiner’s <code>complex_modifications</code>, feel free to
+browse, for example, <a href="https://ke-complex-modifications.pqrs.org/">Karabiner-Elements complex_modifications rules</a>
+or this <a href="https://github.com/metamas/karabiner%5Fcomplex%5Fmodifications">Metamas&rsquo; GitHub</a>.</p>
+<h2 id="3-dot-add-rule-to-karabiner">3. Add rule to Karabiner</h2>
+<p>Right click/Open <code>Karabiner Elements</code> → <code>Preferences</code> → <code>Complex modifications</code>
+→ <code>Add rule</code> →
+You should see the rule <code>Option-Shift-M to Option-Shift-C in Slack</code> →
+click Enable →
+try it out, it should work rightaway: if you go to Slack and type in Option-Shift-M, it should enable the code mode.</p>
+<p>(As a side note, since I use Programmer Dvorak as my layout of choice, I
+actually had to rebind <code>Option-Shift-M</code> to <code>Option-Shift-I</code>, because I think there’s
+some typical switcheroo that happens if you use a nonstandard layout. I have
+tested the above script for the conventional German / US International layout
+and it works well for me).</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Looping over lines in bash</title>
+            <link>http://tsipenyuk.github.io/posts/looping_over_lines_in_bash/</link>
+            <pubDate>Tue, 22 Mar 2022 00:00:00 +0100</pubDate>
+            
+            <guid>http://tsipenyuk.github.io/posts/looping_over_lines_in_bash/</guid>
+            <description>Recently, I had to write a script that finds files that end in .json but not in examples.json, and renames them. Here is a relevant part of the shell script that uses sed.
+find . -type f \( -iname &amp;#34;*.json&amp;#34; ! -iname &amp;#34;*.examples.json&amp;#34; \) | while read -r line do  out=$(sed &amp;#39;s/.json/.d.ts/g&amp;#39; &amp;lt;&amp;lt;&amp;lt; &amp;#34;$line&amp;#34;)  echo &amp;#34;$lineconverted to $out&amp;#34; done In another place, I wanted to create a minimal custom CHANGELOG that prints git commits that mention category cool-category in their message (e.</description>
+            <content type="html"><![CDATA[<p>Recently, I had to write a script that finds files
+that end in <code>.json</code> but not in <code>examples.json</code>,
+and renames them. Here is a relevant part of the
+shell script that uses <code>sed</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find . -type f <span style="color:#ae81ff">\(</span> -iname <span style="color:#e6db74">&#34;*.json&#34;</span> ! -iname <span style="color:#e6db74">&#34;*.examples.json&#34;</span> <span style="color:#ae81ff">\)</span> |
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> read -r line
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    out<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sed <span style="color:#e6db74">&#39;s/.json/.d.ts/g&#39;</span> <span style="color:#f92672">&lt;&lt;&lt;</span> <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74"> converted to </span>$out<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>In another place, I wanted to create a minimal custom <code>CHANGELOG</code>
+that prints git commits that mention category <code>cool-category</code> in their
+message (e.g. <code>fix(cool-category) can not wake up in the morning</code>).
+I could not quite find out how to use <code>sed</code> here, but have found a
+<code>grep</code> solution.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --oneline --decorate |
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> read -r line
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | grep -q <span style="color:#e6db74">&#34;(cool-category)&#34;</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        commit<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>line:0:8<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;</span>$commit<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Setting up ox-hugo</title>
+            <link>http://tsipenyuk.github.io/posts/setting-up-ox-hugo/</link>
+            <pubDate>Sun, 20 Mar 2022 22:13:00 +0100</pubDate>
+            
+            <guid>http://tsipenyuk.github.io/posts/setting-up-ox-hugo/</guid>
+            <description>To set up ox-hugo, I followed the official quick start page.
+On MacOS:
+brew install hugo brew install go mkdir blog &amp;amp;&amp;amp; cd blog For theme, I could not get hugo mod init to work, so I used the git clone approach. As of the time of writing, I have used the hello-friend-ng theme, which recommends the github submodule installation:
+git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng To conclude the theme setup, I have copied the recommended settings to my config.</description>
+            <content type="html"><![CDATA[<p>To set up <code>ox-hugo</code>, I followed the
+<a href="https://ox-hugo.scripter.co/doc/quick-start/">official quick start page</a>.</p>
+<p>On MacOS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install hugo
+</span></span><span style="display:flex;"><span>brew install go
+</span></span><span style="display:flex;"><span>mkdir blog <span style="color:#f92672">&amp;&amp;</span> cd blog
+</span></span></code></pre></div><p>For theme, I could not get <code>hugo mod init</code> to work, so I used
+the <code>git clone</code> approach. As of the time of writing,
+I have used the <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/#how-to-start">hello-friend-ng</a> theme, which recommends
+the github submodule installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
+</span></span></code></pre></div><p>To conclude the theme setup, I have copied the recommended
+settings to my <code>config.toml</code>, specifically the line
+<code>theme = &quot;hello-friend-ng&quot;</code> as well as the <code>[params]</code> section.</p>
+<p>Following with steps 5-13 of the quick start guide, I have
+created this post. In <code>doom emacs</code>, the binding for the
+<code>org-export-dispatch</code> command is <code>SPC m e</code> instead of <code>C-c m e</code>,
+so that <code>SPC m e H H</code> updates the post.</p>
+<p>To print the post date, I had to add the property</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span>  :EXPORT_DATE: [2022-03-22 Di]
+</span></span></code></pre></div><p>where the date was inserted using <code>org-time-stamp-inactive</code> (<code>SPC m d T</code>).
+This timestamp does not include times, so I had to adapt
+the field <code>dateFormNumTime</code> in <code>config.toml</code> so that dummy times are
+not shown in the blog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dateformNumTime</span> = <span style="color:#e6db74">&#34;2006-01-02&#34;</span>
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+    </channel>
+</rss>
